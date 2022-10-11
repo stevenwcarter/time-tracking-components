@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "inlineSources": true,
+    "module": "ESNext",
+    "target": "es2018",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "declarationDir": ".",
+    "emitDeclarationOnly": false,
+    "sourceMap": true,
+    "outDir": "dist",
+	"allowSyntheticDefaultImports": true,
+	"strictNullChecks": true,
+	"jsx": "react-jsx",
+    "lib": [
+      "dom",
+      "es2017"
+    ]
+  },
+  "include": [
+    "src/**/*.ts*"
+  ],
+  "exclude": ["dist"]
+}
