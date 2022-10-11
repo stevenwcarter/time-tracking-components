@@ -1,5 +1,8 @@
 {
-  "name": "bnts-time-tracking",
+  "name": "@stevenwcarter/time-tracking-components",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/stevenwcarter"
+  },
   "version": "0.0.1",
   "description": "A library for code and components supporting time tracking",
   "author": "Steven Carter",
