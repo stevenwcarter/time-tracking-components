@@ -39,7 +39,7 @@
 	"@typescript/no-explicit-any": 0,
 	"node/no-missing-import": ["error", {
 		"allowModules": ["obsidian"],
-		"resolvePaths": [".", "node_modules"],
+		"resolvePaths": ["src", "node_modules"],
 		"tryExtensions": [".ts", ".tsx", ".node", ".js", ".json"]
 	}],
 	"node/no-unpublished-import": ["error", {
