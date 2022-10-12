@@ -1,7 +1,7 @@
-import MinutesCalc, { DateResults, minToTime, minToTimeDecimal, TimeCategory } from './MinutesCalc';
-import React from 'react';
+import MinutesCalc, { DateResults } from './MinutesCalc';
 import { TaskGroup, TimeCatMap, TimePeriod } from './TimeTrackingTypes';
 import { timeDisplay } from 'displayHelpers';
+import { TimeCategoriesReport } from 'TimeCategoriesReport';
 
 export const TIME_REGEX = /(\d{1,2}(:\d{2})?)-(\d{1,2}(:\d{2})?) (.*)/;
 
@@ -86,54 +86,14 @@ export const getAllTimes = (timeCatMap: TimeCatMap) => {
   }, []);
 };
 
-interface TimeCategoriesReportProps {
-  categories: TimeCategory[];
+interface TimeTrackingReportProps {
+  source: string;
 }
 
-interface TimeCategoryReportProps {
-  category: TimeCategory;
-}
-
-export const TimeCategoryReport = (props: TimeCategoryReportProps) => {
-  const { category } = props;
-
-  return (
-    <div>
-      <hr />
-      <br />
-      <div>
-        <strong>Billing Code: </strong>
-        {category.category} - {timeDisplay(category.minutes)}
-      </div>
-      {category.tasks.length > 0 && (
-        <pre>
-          {category.tasks.map((task, i) => (
-            <div key={`${category}task${i}`}>{task}</div>
-          ))}
-        </pre>
-      )}
-
-      <br />
-    </div>
-  );
-};
-
-export const TimeCategoriesReport = (props: TimeCategoriesReportProps) => {
-  return (
-    <div>
-      {props.categories.map((c, i) => (
-        <TimeCategoryReport key={`timecategory${i}`} category={c} />
-      ))}
-    </div>
-  );
-};
-
-export const TimeTrackingReport = (props: any) => {
+export const TimeTrackingReport = (props: TimeTrackingReportProps) => {
   const timeCatMap = parseLines(props.source);
 
   const allTimes = timeCatMap[1];
-
-  console.log('All times', allTimes);
 
   const mc = new MinutesCalc(allTimes);
 
@@ -151,41 +111,40 @@ export const TimeTrackingReport = (props: any) => {
     results.timeCategories.push(tc);
   });
 
-  console.log(timeCatMap);
-  console.log(results);
+  const minutesData = results.minutesData;
 
   return (
     <div>
       <h3>Time Tracking</h3>
       <div>
         <strong>Start Time: </strong>
-        {results.minutesData.startTime}
+        {minutesData.startTime}
         {'  '}
 
         <strong>End Time: </strong>
-        {results.minutesData.endTime}
+        {minutesData.endTime}
       </div>
       <hr />
       <div>
         <strong>Total Working Time: </strong>
-        {timeDisplay(results.minutesData.totalWorkingMinutes)}
+        {timeDisplay(minutesData.totalWorkingMinutes)}
       </div>
       <div>
         <strong>Total dead time: </strong>
-        {timeDisplay(results.minutesData.totalDeadMinutes)}
+        {timeDisplay(minutesData.totalDeadMinutes)}
       </div>
-      {results.minutesData.deadPeriods.length > 0 && (
+      {minutesData.deadPeriods.length > 0 && (
         <>
           <hr />
           <strong>Dead Periods:</strong>
           <ul>
-            {results.minutesData.deadPeriods.map((dp, i) => (
+            {minutesData.deadPeriods.map((dp, i) => (
               <li key={`deadperiod${i}`}>{dp}</li>
             ))}
           </ul>
         </>
       )}
-      {results.minutesData.alertSuspiciousDeadPeriod && (
+      {minutesData.alertSuspiciousDeadPeriod && (
         <strong>
           Please verify dead time periods as there is at least one suspiciously long dead period.
           Generally, this is a sign of bad data.
