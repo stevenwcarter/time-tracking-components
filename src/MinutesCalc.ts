@@ -83,7 +83,12 @@ export const minToTime = (minutes: number) => {
   return `${hoursStr}:${minutesString}`;
 };
 
-const roundNearestQuarter = (number: number) => {
+export const roundNearestQuarter = (number: number) => {
+  // since we return the unrounded number, round to minimum of a quarter hour
+  if (number < 0.25 && number > 0) {
+    return '0.25';
+  }
+
   return (Math.round(number * 4) / 4).toFixed(2);
 };
 
