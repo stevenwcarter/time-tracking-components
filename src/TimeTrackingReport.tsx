@@ -1,6 +1,7 @@
 import MinutesCalc, { DateResults, minToTime, minToTimeDecimal, TimeCategory } from './MinutesCalc';
 import React from 'react';
 import { TaskGroup, TimeCatMap, TimePeriod } from './TimeTrackingTypes';
+import { timeDisplay } from 'displayHelpers';
 
 export const TIME_REGEX = /(\d{1,2}(:\d{2})?)-(\d{1,2}(:\d{2})?) (.*)/;
 
@@ -83,10 +84,6 @@ export const getAllTimes = (timeCatMap: TimeCatMap) => {
       }))
     );
   }, []);
-};
-
-export const timeDisplay = (minutes: number): string => {
-  return `${minToTime(minutes)} (${minToTimeDecimal(minutes)})`;
 };
 
 interface TimeCategoriesReportProps {
