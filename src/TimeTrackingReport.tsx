@@ -3,7 +3,7 @@ import { TaskGroup, TimeCatMap, TimePeriod } from './TimeTrackingTypes';
 import { timeDisplay } from 'displayHelpers';
 import { TimeCategoriesReport } from 'TimeCategoriesReport';
 
-export const TIME_REGEX = /(\d{1,2}(:\d{2})?)-(\d{1,2}(:\d{2})?) (.*)/;
+export const TIME_REGEX = /^(\d{1,2}(:\d{2})?)-(\d{1,2}(:\d{2})?) (.*)/;
 
 export const extractTimes = (line: string) => {
   const matches = line.match(TIME_REGEX);

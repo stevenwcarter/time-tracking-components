@@ -66,6 +66,28 @@ describe('parseLines', () => {
       },
     });
   });
+  it('should extract and group times while excluding time-like entries in notes', () => {
+    expect(
+      parseLines(`12:00-1:30 test
+		- Doing a thing
+		1:30-2:30 test2
+		- 1-1 w/ so-and-so
+		2:30-4 test
+		- Different from the first thing`)[0]
+    ).toMatchObject({
+      test: {
+        tasks: ['- Doing a thing', '- Different from the first thing'],
+        times: [
+          { startTime: '12:00', endTime: '1:30' },
+          { startTime: '2:30', endTime: '4:00' },
+        ],
+      },
+      test2: {
+        tasks: ['- 1-1 w/ so-and-so'],
+        times: [{ startTime: '1:30', endTime: '2:30' }],
+      },
+    });
+  });
 });
 
 describe('getAllTimes', () => {
