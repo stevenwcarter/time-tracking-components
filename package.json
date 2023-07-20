@@ -1,57 +1,57 @@
 {
-  "name": "@stevenwcarter/time-tracking-components",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/stevenwcarter"
-  },
-  "repository": "https://github.com/stevenwcarter/time-tracking-components.git",
-  "version": "0.0.2",
-  "description": "A library for code and components supporting time tracking",
-  "author": "Steven Carter",
-  "dependencies": {
-    "@types/react": "^18.2.15",
-    "react": "^18.2.0",
-    "ts-node": "^10.9.1",
-    "tslib": "^2.6.0",
-    "typescript": "^4.8.4"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.22.9",
-    "@babel/preset-react": "^7.22.5",
-    "@babel/preset-typescript": "^7.22.5",
-    "@rollup/plugin-commonjs": "^23.0.0",
-    "@rollup/plugin-node-resolve": "^15.1.0",
-    "@rollup/plugin-typescript": "^9.0.1",
-    "@types/jest": "^29.5.3",
-    "@types/node": "^18.8.4",
-    "@typescript-eslint/eslint-plugin": "^5.40.0",
-    "@typescript-eslint/parser": "^5.40.0",
-    "eslint": "^8.45.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-config-react": "^1.1.7",
-    "eslint-config-stylelint": "^17.0.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.2",
-    "husky": "^8.0.3",
-    "jest": "^29.6.1",
-    "jest-environment-jsdom": "^29.6.1",
-    "lint-staged": "^13.2.3",
-    "prettier": "^2.7.1",
-    "rollup": "^2.79.1",
-    "rollup-plugin-dts": "^4.2.3"
-  },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "files": [
-    "dist"
-  ],
-  "lint-staged": {
-    "*.{ts,tsx}": "eslint --fix"
-  },
-  "license": "ISC",
-  "scripts": {
-    "rollup": "rollup -c",
-    "test": "jest",
-    "prepare": "husky install"
-  },
-  "types": "dist/index.d.ts"
+    "name": "@stevenwcarter/time-tracking-components",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/stevenwcarter"
+    },
+    "repository": "https://github.com/stevenwcarter/time-tracking-components.git",
+    "version": "0.0.3",
+    "description": "A library for code and components supporting time tracking",
+    "author": "Steven Carter",
+    "dependencies": {
+        "@types/react": "^18.2.15",
+        "react": "^18.2.0",
+        "ts-node": "^10.9.1",
+        "tslib": "^2.6.0",
+        "typescript": "^4.8.4"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "^7.22.9",
+        "@babel/preset-react": "^7.22.5",
+        "@babel/preset-typescript": "^7.22.5",
+        "@rollup/plugin-commonjs": "^23.0.0",
+        "@rollup/plugin-node-resolve": "^15.1.0",
+        "@rollup/plugin-typescript": "^9.0.1",
+        "@types/jest": "^29.5.3",
+        "@types/node": "^18.8.4",
+        "@typescript-eslint/eslint-plugin": "^5.40.0",
+        "@typescript-eslint/parser": "^5.40.0",
+        "eslint": "^8.45.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-config-react": "^1.1.7",
+        "eslint-config-stylelint": "^17.0.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-react": "^7.32.2",
+        "husky": "^8.0.3",
+        "jest": "^29.6.1",
+        "jest-environment-jsdom": "^29.6.1",
+        "lint-staged": "^13.2.3",
+        "prettier": "^2.7.1",
+        "rollup": "^2.79.1",
+        "rollup-plugin-dts": "^4.2.3"
+    },
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "files": [
+        "dist"
+    ],
+    "lint-staged": {
+        "*.{ts,tsx}": "eslint --fix"
+    },
+    "license": "ISC",
+    "scripts": {
+        "rollup": "rollup -c",
+        "test": "jest",
+        "prepare": "husky install"
+    },
+    "types": "dist/index.d.ts"
 }
